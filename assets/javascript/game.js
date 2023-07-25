@@ -1,8 +1,12 @@
+/* Game javascript with DOM elements */
+
 let game = {
     currentGame: [],
     playerMoves: [],
     score: 0,
     turnNumber: 0,
+    lastButton: "",
+    turnInProgress: false,
     choices: ["button1", "button2", "button3", "button4"]
 };
 
@@ -14,10 +18,13 @@ function newGame() {
     for (let circle of document.getElementsByClassName("circle")) {
         if (circle.getAttribute("data-listener") !== "true") {
             circle.addEventListener("click", (e) => {
-                let move = e.target.getAttribute("id");
-                game.playerMoves.push(move);
-                lightsOn(move);
-                playerTurn();
+                if (game.currentGame.length > 0 && !game.turnInProgress) {
+                    let move = e.target.getAttribute("id");
+                    game.lastButton = move;
+                    lightsOn(move);
+                    game.playerMoves.push(move);
+                    playerTurn(); 
+                }
             });
             circle.setAttribute("data-listener", "true");
         }
@@ -33,12 +40,14 @@ function addTurn() {
 }
 
 function showTurns() {
+    game.turnInProgress = true;
     game.turnNumber = 0;
     let turns = setInterval(function () {
         lightsOn(game.currentGame[game.turnNumber]);
         game.turnNumber++;
         if (game.turnNumber >= game.currentGame.length) {
             clearInterval(turns);
+            game.turnInProgress = false;
         }
     }, 800);
 }
@@ -68,4 +77,5 @@ function showScore() {
     document.getElementById("score").innerText = game.score;
 }
 
+/* Exporting the modules into the testing file */
 module.exports = { game, newGame, showScore, addTurn, lightsOn, showTurns, playerTurn };

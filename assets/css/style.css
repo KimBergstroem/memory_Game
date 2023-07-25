@@ -29,14 +29,16 @@ h2 {
     height: 500px;
     width: 500px;
     background-color: #009FE3;
+    border: 1px solid black;
 }
 
 .circle2 {
     height: 400px;
     width: 400px;
-    background-color: #445261;
+    background-color: #70ee51;
     top: 50px;
     left: 50px;
+    border: 1px solid black;
 }
 .circle3 {
     height: 300px;
@@ -44,13 +46,15 @@ h2 {
     background-color: #EFB920;
     top: 100px;
     left: 100px;
+    border: 1px solid black;
 }
 .circle4 {
     height: 200px;
     width: 200px;
-    background-color: #23BBBB;
+    background-color: #f046e7;
     top: 150px;
     left: 150px;
+    border: 1px solid black;
 }
 
 .scorebox {
