@@ -1,4 +1,5 @@
 # Funny Memory Game
+Visit the deployed site: [Javascript Calculator Project](https://kimbergstroem.github.io/memory_Game/)
 
 This repository contains a simple and entertaining memory game built using JavaScript. Challenge your memory skills by matching pairs of randomly blinking circles in this fun and addictive game!
 
